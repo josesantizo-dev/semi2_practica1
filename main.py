@@ -90,8 +90,29 @@ while True:
 		cursor.close()
 
 	elif opcionMenu=="3":
-		print ("")
-		input("Has pulsado la opción 3...\npulsa una tecla para continuar")
+
+		f = open("resultados.txt", "w")
+		cursor = conexion.cursor(buffered=True)
+		cursor.execute(CONSULTA1)
+		f.write("CONSULTA1\n")
+
+		myresult = cursor.fetchall()
+
+		for x in myresult:
+			print(x)
+			f.write(str(x)+"\n")
+
+		cursor.execute(CONSULTA2)
+		f.write("CONSULTA2\n")
+
+		myresult = cursor.fetchall()
+
+		for x in myresult:
+			print(x)
+			f.write(str(x)+"\n")
+
+		f.close()
+		cursor.close()
 	elif opcionMenu=="9":
 		conexion.close()
 		break
