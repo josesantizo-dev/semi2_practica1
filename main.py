@@ -93,23 +93,96 @@ while True:
 
 		f = open("resultados.txt", "w")
 		cursor = conexion.cursor(buffered=True)
+
+		#----------------------------------------
 		cursor.execute(CONSULTA1)
 		f.write("CONSULTA1\n")
 
 		myresult = cursor.fetchall()
 
 		for x in myresult:
-			print(x)
 			f.write(str(x)+"\n")
 
+		#----------------------------------------
 		cursor.execute(CONSULTA2)
 		f.write("CONSULTA2\n")
 
 		myresult = cursor.fetchall()
 
 		for x in myresult:
-			print(x)
 			f.write(str(x)+"\n")
+
+		#----------------------------------------
+		cursor.execute(CONSULTA3)
+		f.write("CONSULTA3\n")
+
+		myresult = cursor.fetchall()
+
+		for x in myresult:
+			f.write(str(x)+"\n")
+
+		#----------------------------------------
+		cursor.execute(CONSULTA4)
+		f.write("CONSULTA4\n")
+
+		myresult = cursor.fetchall()
+
+		for x in myresult:
+			f.write(str(x)+"\n")
+
+		#----------------------------------------
+		cursor.execute(CONSULTA5)
+		f.write("CONSULTA5\n")
+
+		myresult = cursor.fetchall()
+
+		for x in myresult:
+			f.write(str(x)+"\n")
+
+		#----------------------------------------
+		cursor.execute(CONSULTA6)
+		f.write("CONSULTA6\n")
+
+		myresult = cursor.fetchall()
+
+		for x in myresult:
+			f.write(str(x)+"\n")
+
+		#----------------------------------------
+		cursor.execute(CONSULTA7)
+		f.write("CONSULTA7\n")
+
+		myresult = cursor.fetchall()
+
+		for x in myresult:
+			f.write(str(x)+"\n")
+		
+		#----------------------------------------
+		cursor.execute(CONSULTA8)
+		f.write("CONSULTA8\n")
+
+		myresult = cursor.fetchall()
+
+		for x in myresult:
+			f.write(str(x)+"\n")
+		
+		#----------------------------------------
+		cursor.execute(CONSULTA9)
+		f.write("CONSULTA9\n")
+
+		myresult = cursor.fetchall()
+
+		for x in myresult:
+			f.write(str(x)+"\n")
+
+		#----------------------------------------
+		cursor.execute(CONSULTA10)
+		f.write("CONSULTA10\n")
+
+		myresult = cursor.fetchall()
+
+		for x in myresult:
+			f.write(str(x)+"\n")	
 
 		f.close()
 		cursor.close()
