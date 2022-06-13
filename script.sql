@@ -134,11 +134,22 @@ limit 5
 ;
 
 #CONSULTA10
-select cancion.explicit, genero.nombre, count(*)
+select cancion.cancionId, genero.generoId, cancion.song, genero.nombre, count(*)
 from reproduccion
 INNER JOIN cancion ON cancion.cancionId = reproduccion.cancionId
 INNER JOIN genero ON genero.generoId = reproduccion.generoId
 where cancion.explicit LIKE '%True%'
-group by cancion.explicit, genero.nombre
+group by cancion.song, genero.nombre, cancion.duration_ms
+having count(*) = (
+select count(*)
+from reproduccion
+INNER JOIN cancion can ON can.cancionId = reproduccion.cancionId
+INNER JOIN genero gen ON gen.generoId = reproduccion.generoId
+where gen.generoId = genero.generoId
+and can.explicit LIKE '%True%'
+group by can.song, gen.nombre, can.duration_ms
+order by count(*) desc
+limit 1
+)
 order by count(*) desc
 ;
